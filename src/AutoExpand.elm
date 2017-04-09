@@ -34,6 +34,7 @@ type alias ConfigInternal msg =
     , minRows : Int
     , maxRows : Int
     , styles : List ( String, String )
+    , placeholder : String
     }
 
 
@@ -71,6 +72,7 @@ config :
     , minRows : Int
     , maxRows : Int
     , styles : List ( String, String )
+    , placeholder : String
     }
     -> Config msg
 config values =
@@ -97,6 +99,7 @@ view (Config config) (State rowCount) textValue =
         , rows rowCount
         , Html.Attributes.value textValue
         , textareaStyles config rowCount
+        , Html.Attributes.placeholder config.placeholder
         ]
         []
 
